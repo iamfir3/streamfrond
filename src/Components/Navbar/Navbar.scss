@@ -11,16 +11,15 @@
     font-size: 30px;
 }
 
-.body_favorite,
-.body_lib,
-.discovery,
-.trend,
-.home{
+.body_favorite a,
+.body_lib a,
+.discovery a,
+.trend a,
+.home a{
     display: flex;
     align-items: center;
-    text-align: center;
     height: 50px;
-    width: 36%;
+    width: 50%;
     margin: auto;
 }
 

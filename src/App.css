@@ -11,3 +11,13 @@ body{
     background-color: black;
     color: white;
 }
+
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover{
+    color: #FF8202;
+    transition: .3s;
+}

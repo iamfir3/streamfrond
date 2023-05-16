@@ -14,43 +14,43 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="header_nav">
-        <Link to="/">
-          <div className="logo">LOGO</div>
-        </Link>
+        <div className="logo">
+          <Link to="/">LOGO</Link>
+        </div>
 
-        <Link to="/">
-          <div className="home">
+        <div className="home">
+          <Link to="/">
             <AiFillHome className="icon" />
             Home
-          </div>
-        </Link>
-        <Link to="/trend">
-          <div className="trend">
+          </Link>
+        </div>
+        <div className="trend">
+          <Link to="/trend">
             <BiTrendingUp className="icon" />
             <span>Trend</span>
-          </div>
-        </Link>
-        <Link to="/discovery">
-          <div className="discovery">
+          </Link>
+        </div>
+        <div className="discovery">
+          <Link to="/discovery">
             <AiOutlineGlobal className="icon" /> <span>Discovery</span>
-          </div>
-        </Link>
+          </Link>
+        </div>
       </div>
 
       <div className="body_nav">
         <div className="title">Library</div>
-        <Link to={"/recent"}>
-          <div className="body_lib">
+        <div className="body_lib">
+          <Link to={"/recent"}>
             <FiClock className="icon" />
             <span>Recent</span>
-          </div>
-        </Link>
-        <Link to={"/favourites"}>
-          <div className="body_favorite">
+          </Link>
+        </div>
+        <div className="body_favorite">
+          <Link to={"/favourites"}>
             <AiOutlineHeart className="icon" />
             <span>Favourites</span>
-          </div>
-        </Link>
+          </Link>
+        </div>
       </div>
     </div>
   );
