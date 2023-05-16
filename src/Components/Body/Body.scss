@@ -1,12 +1,13 @@
 .container{
     width: 100%;
+    padding:0 50px;
 }
 
 .body_header{
     height: 85px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .body_search{
@@ -35,4 +36,33 @@
 
 .body_right .icon{
     font-size: 24px;
+    cursor: pointer;
+}
+
+.content{
+    // border: 1px solid #fff;
+    // height: 340px;
+    display: flex;
+}
+
+.content img{
+    width: 333px;
+    object-fit: contain;
+}
+
+.content span{
+}
+
+.content_text {
+    margin-left: 50px;
+}
+
+.content_text .author{
+    font-size: 44px;
+    margin-top: 30px;
+}
+
+.content_text h3{
+    // position: absolute;
+    // bottom: -45px;
 }

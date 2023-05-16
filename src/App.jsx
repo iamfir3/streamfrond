@@ -1,17 +1,26 @@
 import { useState } from "react";
 import "./App.css";
-import Home from "./Page/Home/Home";
-import { BrowserRouter, Router, Route, Routes } from "react-router-dom";
+import Router from "./Router/Router";
+import { Songs } from "./Context";
+import DataSongs from "./data/data.json";
+import Playing from "./Components/Playing";
 
 function App() {
+  const [song, setSong] = useState(DataSongs[0]);
+
+  const handleSetSong = (idSong) => {
+    const song = DataSongs.find((song) => song.id === idSong);
+    if (!song) setSong(DataSongs[0]);
+    else setSong(song);
+    setSong(song);
+  };
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+    <div className="App">
+      <Songs.Provider value={{ DataSongs, song, handleSetSong }}>
+        <Router />
+        <Playing />
+      </Songs.Provider>
+    </div>
   );
 }
 
