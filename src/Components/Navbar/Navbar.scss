@@ -1,0 +1,36 @@
+.navbar{
+    width: 300px;
+}
+
+.header_nav{
+    text-align: center;
+}
+
+.logo{
+    padding: 20px;
+    font-size: 30px;
+}
+
+.body_favorite,
+.body_lib,
+.discovery,
+.trend,
+.home{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 50px;
+    width: 36%;
+    margin: auto;
+}
+
+.icon{
+    margin-right:20px;
+    font-size: 20px;
+}
+
+.body_nav .title{
+    color: #bbb;
+    text-align: center;
+    margin-top: 20px;
+}
