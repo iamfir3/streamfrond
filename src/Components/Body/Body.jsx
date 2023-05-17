@@ -1,41 +1,46 @@
 import React from "react";
 import "./Body.scss";
-import { AiOutlineSearch, AiOutlineLogin } from "react-icons/ai";
-import { IoMdNotificationsOutline } from "react-icons/io";
 import { Link } from "react-router-dom";
 import ListSong from "../ListSong/ListSong";
+import banner from "../../assets/banner.png";
+import { MdArrowForwardIos } from "react-icons/md";
+import Playing from "../Playing";
+import ReactPerfectScrollbar from "react-perfect-scrollbar";
+import "react-perfect-scrollbar/dist/css/styles.css";
 
 const Body = () => {
   return (
-    <div className="container">
-      <div className="body_header">
-        <div className="body_search">
-          <input type="text" className="search" placeholder="Search music" />
-          <AiOutlineSearch className="icon_search" />
-        </div>
-        <div className="body_right">
-          <IoMdNotificationsOutline className="icon" />
-          <div className="body_right-login">
-            <Link to={"/login"}>
-              <AiOutlineLogin className="icon" />
-            </Link>
+    <div className=" pb-[30px]">
+      <div className="mb-[40px]">
+        <div className="w-full rounded-[16px] overflow-hidden h-[320px] relative flex items-center">
+          <img
+            src={banner}
+            alt=""
+            className="absolute z-1"
+            style={{ width: "80%" }}
+          />
+          <div className="absolute h-[800px] right-[-290px] w-[800px] rotate-[-39deg] rounded-[80px] top-[-190px] z-1"
+            style={{
+              background: 'linear-gradient(302.47deg, #050607 64.07%, rgba(12, 14, 18, 0) 105.78%)',
+            }}>
+          </div>
+          <div className="z-[2] w-[300px] absolute right-[100px] ">
+            <p className="text-[16px] font-[500]">A shape-shifting and musically adept American, German, and Swedish hard rock unit that skillfully blends elements of classical, gothic/doom metal, progressive rock, and symphonic metal ...</p>
+            <div className="flex items-center text-[18px] font-[700] gap-[12px] mt-[24px]">
+              <p>About</p>
+              <MdArrowForwardIos className="font-[700]"></MdArrowForwardIos>
+            </div>
+          </div>
+          <div className="z-[2] absolute left-[40px] bottom-[30px]">
+            <p className="font-[700] text-[60px]">Kamelot</p>
+            <p className="font-[500] text-[16px]">284,199 monthly listeners</p>
           </div>
         </div>
       </div>
-      <div className="content">
-        <div className="content_img">
-          <img
-            src="https://rukminim1.flixcart.com/image/416/416/xif0q/poster/g/y/a/small-spos8754-poster-music-alan-walker-wall-poster-sl-8754-wall-original-imaghzwayj58fagw.jpeg?q=70"
-            alt=""
-          />
-        </div>
-        <div className="content_text">
-          <h1>Public playlists</h1>
-          <h1 className="author">Alan Walker</h1>
-          <h3>284,199 monthly listeners</h3>
-        </div>
-      </div>
+
       <ListSong />
+
+      <Playing></Playing>
     </div>
   );
 };

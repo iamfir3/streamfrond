@@ -8,48 +8,39 @@ import {
 } from "react-icons/ai";
 import { BiTrendingUp } from "react-icons/bi";
 import { FiClock } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import ROKK from "../../assets/ROKK.png";
 
 const Navbar = () => {
   return (
-    <div className="navbar">
-      <div className="header_nav">
-        <div className="logo">
-          <Link to="/">LOGO</Link>
+    <div className="w-[300px] pl-[60px]">
+      <div className=" mb-[48px]">
+        <div className=" mb-[80px] pl-[30px] pr-[70px] pt-[40px]">
+          <NavLink to="/" className={({ isActive }) => `${isActive ? "text-primary" : ""} flex justify-center`}>
+            <img src={ROKK} alt="" />
+          </NavLink>
         </div>
-
-        <div className="home">
-          <Link to="/">
+        <div className="mb-[36px]">
+          <NavLink className={({ isActive }) => `${isActive ? "text-primary" : "text-text1"} font-[500] text-[20px] flex gap-[20px] items-center `} to="/">
             <AiFillHome className="icon" />
-            Home
-          </Link>
+            <span>Home</span>
+          </NavLink>
         </div>
-        <div className="trend">
-          <Link to="/trend">
+        <div className="">
+          <NavLink className={({ isActive }) => `${isActive ? "text-primary" : "text-text1"} font-[500] text-[20px] flex gap-[20px] items-center `} to="/trend">
             <BiTrendingUp className="icon" />
             <span>Trend</span>
-          </Link>
-        </div>
-        <div className="discovery">
-          <Link to="/discovery">
-            <AiOutlineGlobal className="icon" /> <span>Discovery</span>
-          </Link>
+          </NavLink>
         </div>
       </div>
 
-      <div className="body_nav">
-        <div className="title">Library</div>
-        <div className="body_lib">
-          <Link to={"/recent"}>
-            <FiClock className="icon" />
-            <span>Recent</span>
-          </Link>
-        </div>
-        <div className="body_favorite">
-          <Link to={"/favourites"}>
+      <div className="">
+        <div className="text-[16px] font-[500] text-[#404040] mb-[36px]">Library</div>
+        <div className="flex flex-col gap-[36px]">
+          <NavLink className={({ isActive }) => `${isActive ? "text-primary" : "text-text1"} font-[500] text-[20px] flex gap-[20px] items-center `} to={"/favourites"}>
             <AiOutlineHeart className="icon" />
             <span>Favourites</span>
-          </Link>
+          </NavLink>
         </div>
       </div>
     </div>

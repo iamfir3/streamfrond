@@ -1,0 +1,27 @@
+.rhap_progress-filled {
+  background-color: #ff8202;
+}
+
+.rhap_progress-indicator {
+  background-color: #ff8202;
+}
+.rhap_current-time,
+.rhap_total-time {
+  font-weight: 700;
+  font-size: 16px;
+}
+.rhap_container {
+  border-radius: 12px;
+  background: linear-gradient(
+    91.99deg,
+    rgba(26, 26, 26, 0.75) 0%,
+    rgba(38, 38, 38, 0.75) 100%
+  );
+  box-shadow: 16px 16px 40px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(50px);
+  padding: 24px 32px;
+}
+
+.rhap_main-controls-button {
+  color: white;
+}

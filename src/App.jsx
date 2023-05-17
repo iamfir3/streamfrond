@@ -3,7 +3,6 @@ import "./App.css";
 import Router from "./Router/Router";
 import { Songs } from "./Context";
 import DataSongs from "./data/data.json";
-import Playing from "./Components/Playing";
 
 function App() {
   const [song, setSong] = useState(DataSongs[0]);
@@ -18,7 +17,6 @@ function App() {
     <div className="App">
       <Songs.Provider value={{ DataSongs, song, handleSetSong }}>
         <Router />
-        <Playing />
       </Songs.Provider>
     </div>
   );
