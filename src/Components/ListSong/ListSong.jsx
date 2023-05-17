@@ -21,8 +21,8 @@ const ListSong = () => {
       <div className="col-span-2 overflow-y-auto h-[350px]">
         <ReactPerfectScrollbar>
           <table className="table-auto w-full">
-            <thead className="text-white h-12">
-              <tr className="sticky top-0 ">
+            <thead className="text-white h-12 ">
+              <tr className="sticky top-0 " style={{ background: "linear-gradient(113.82deg, #000000 0%, #1A1A1A 96.93%)" }}>
                 <th className="w-[10%]">#</th>
                 <th className="text-left">Title</th>
                 <th className="w-[10%]">Author</th>
