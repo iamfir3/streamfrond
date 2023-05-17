@@ -1,7 +1,7 @@
 import { BiSearch } from "react-icons/bi";
 import { HiBell } from "react-icons/hi";
 import Navbar from "../../Components/Navbar/Navbar";
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -17,9 +17,9 @@ const Home = () => {
             <div>
               <HiBell size='30' className="text-[#BFBFBF]"></HiBell>
             </div>
-            <div className="bg-[#262626] rounded-[40px] px-[20px] py-[10px]">
+            <Link to='/login' className="bg-[#262626] rounded-[40px] px-[20px] py-[10px]">
               <p>Login</p>
-            </div>
+            </Link>
           </div>
         </div>
 
