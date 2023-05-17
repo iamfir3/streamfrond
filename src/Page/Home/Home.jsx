@@ -1,12 +1,15 @@
-import React from "react";
 import Navbar from "../../Components/Navbar/Navbar";
-import Body from "../../Components/Body/Body";
+import { Outlet } from "react-router-dom";
 
 const Home = () => {
   return (
     <div style={{ display: "flex" }}>
-      <Navbar />
-      <Body />
+      <div>
+        <Navbar />
+      </div>
+      <div>
+        <Outlet />
+      </div>
     </div>
   );
 };
