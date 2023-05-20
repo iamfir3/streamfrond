@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Router from "./Router/Router";
 import { Songs } from "./Context";
-import DataSongs from "./data/data.json";
+import Music from "./apis/Music";
 
 function App() {
+  const [DataSongs, setDataSongs] = useState([]);
+  useEffect(() => {
+    const fetchSongs = async () => {
+      const res = await Music.getAll();
+      setDataSongs(res);
+    };
+    fetchSongs();
+  }, []);
   const [song, setSong] = useState(DataSongs[0]);
 
   const handleSetSong = (idSong) => {

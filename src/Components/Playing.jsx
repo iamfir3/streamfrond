@@ -17,7 +17,7 @@ const Playing = () => {
     <div>
       <AudioPlayer
         className="player-music"
-        src={song.url}
+        src={song?.url}
         showSkipControls={true}
         showJumpControls={false}
         onClickNext={handleClickNext}

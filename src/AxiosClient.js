@@ -5,10 +5,7 @@ const axiosClients = axios.create({
 });
 
 axiosClients.interceptors.request.use(async (config) => {
-  let token =
-    window.localStorage.getItem("persist:auth") &&
-    JSON.parse(window.localStorage.getItem("persist:auth"))?.accessToken;
-  if (token) token = token.slice(1, token.length - 1);
+  let token = window.localStorage.getItem("token");
   config.headers = {
     authorization: token,
   };

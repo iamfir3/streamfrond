@@ -3,7 +3,7 @@ import { BiTimeFive } from "react-icons/bi";
 import { Songs } from "../../Context";
 import ReactPerfectScrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
-
+import Music from "../../apis/Music";
 
 const ListSong = () => {
   const { DataSongs, handleSetSong, song } = useContext(Songs);
@@ -13,7 +13,7 @@ const ListSong = () => {
     handleSetSong(idSong);
   };
   useEffect(() => {
-    setidSong(song.id);
+    setidSong(song?.id);
   }, [song]);
 
   return (
@@ -37,15 +37,15 @@ const ListSong = () => {
                 <tr
                   key={index}
                   className={` h-12 text-gray-500 hover:bg-slate-600 
-              ${idSong === song.id && "bg-[#1a1a1a] rounded-[8px] text-[#fff]"}
+              ${idSong === song?.id && "bg-[#1a1a1a] rounded-[8px] text-[#fff]"}
               `}
-                  onClick={() => handlePlaySong(song.id)}
+                  onClick={() => handlePlaySong(song?.id)}
                 >
                   <td className="text-center ">{index + 1}</td>
-                  <td className={`${idSong === song.id ? " text-white" : "text-text1"} font-[600] text-[14px]`}>{song.name}</td>
-                  <td className="text-center">{song.author}</td>
+                  <td className={`${idSong === song?.id ? " text-white" : "text-text1"} font-[600] text-[14px]`}>{song?.name}</td>
+                  <td className="text-center">{song?.author}</td>
                   <td className="text-center">
-                    {song.data}
+                    {song?.data}
                     {/* <a href={song.url}>
                   <i className="fa fa-download"></i>
                 </a> */}

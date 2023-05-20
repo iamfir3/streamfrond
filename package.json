@@ -18,7 +18,10 @@
     "react-icons": "^4.8.0",
     "react-perfect-scrollbar": "^1.5.8",
     "react-router-dom": "^6.11.1",
-    "sass": "^1.62.1"
+    "redux": "^4.2.1",
+    "redux-persist": "^6.0.0",
+    "sass": "^1.62.1",
+    "sweetalert2": "^11.7.5"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

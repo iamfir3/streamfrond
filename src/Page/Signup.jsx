@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useRef } from "react";
 import ROKK from "../assets/ROKK.png";
 import AuthApi from "../apis/AuthApi";
+import swal from "sweetalert2";
 
 const Signup = () => {
     const emailRef = useRef();
@@ -25,15 +26,29 @@ const Signup = () => {
             <input type="password" placeholder="Password" className="px-[14px] w-full py-[8px] rounded-[4px] border-[1px] outline-none border-[#727272] bg-[#121212]" ref={passwordRef} />
         </div>
 
-        <div className="w-[200px] h-[48px] bg-primary text-black font-[700] text-[16px] flex items-center justify-center rounded-[30px] mt-[30px]" onClick={()=>{
-            
+        <div className="w-[200px] h-[48px] bg-primary text-black font-[700] text-[16px] flex items-center justify-center rounded-[30px] mt-[30px]" onClick={() => {
+            const createUser = async () => {
+                try {
+
+                    const res = await AuthApi.create({ username: usernameRef.current.value, email: emailRef.current.value, password: passwordRef.current.value })
+                    if (res.status === 0) {
+                        swal.fire("Success", "Signup successful", "success")
+                    }
+                }
+                catch (err) {
+                    console.log(err);
+                    swal.fire("Error", err.response.data.message, "error")
+
+                }
+            }
+            createUser();
         }}>
             <p>Sign up</p>
         </div>
 
         <p className="text-[#a7a7a7] font-[400] text-[14px] mt-[20px]">Have an account? <Link to='/login' className="text-white font-[400] text-[14px]">Login</Link></p>
 
-    </div>
+    </div >
 }
 
 export default Signup;
