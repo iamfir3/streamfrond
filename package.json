@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build babel src --out-dir dist",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
+    "annyang": "^2.6.1",
     "axios": "^1.4.0",
     "perfect-scrollbar": "^1.5.5",
     "react": "^18.2.0",
@@ -18,12 +19,15 @@
     "react-icons": "^4.8.0",
     "react-perfect-scrollbar": "^1.5.8",
     "react-router-dom": "^6.11.1",
+    "react-speech-recognition": "^3.10.0",
     "redux": "^4.2.1",
     "redux-persist": "^6.0.0",
     "sass": "^1.62.1",
     "sweetalert2": "^11.7.5"
   },
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.21.4",
+    "@babel/preset-env": "^7.21.5",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^4.0.0",
