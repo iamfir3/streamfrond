@@ -4,6 +4,7 @@ import Body from "../Components/Body/Body";
 import Home from "../Page/Home/Home";
 import Login from "../Page/Login";
 import Signup from "../Page/Signup";
+import Recorder from "../Page/Recorder";
 
 const Router = () => {
   return (
@@ -13,6 +14,7 @@ const Router = () => {
           <Route path="/" element={<Home />}>
             <Route path='' element={<Body></Body>}></Route>
             <Route path='trend' element={<Body></Body>}></Route>
+            <Route path='recorder' element={<Recorder></Recorder>}></Route>
           </Route>
           <Route path="/login" element={<Login></Login>}></Route>
           <Route path="/signup" element={<Signup></Signup>}></Route>

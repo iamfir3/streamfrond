@@ -6,6 +6,7 @@ import {
   AiOutlineGlobal,
   AiOutlineHeart,
 } from "react-icons/ai";
+import { BsFillMicFill } from "react-icons/bs";
 import { BiTrendingUp } from "react-icons/bi";
 import { FiClock } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
@@ -34,12 +35,22 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="">
+      <div className="mb-[36px]">
         <div className="text-[16px] font-[500] text-[#404040] mb-[36px]">Library</div>
         <div className="flex flex-col gap-[36px]">
           <NavLink className={({ isActive }) => `${isActive ? "text-primary" : "text-text1"} font-[500] text-[20px] flex gap-[20px] items-center `} to={"/favourites"}>
             <AiOutlineHeart className="icon" />
             <span>Favourites</span>
+          </NavLink>
+        </div>
+      </div>
+
+      <div className="">
+        <div className="text-[16px] font-[500] text-[#404040] mb-[36px]">Recording</div>
+        <div className="flex flex-col gap-[36px]">
+          <NavLink className={({ isActive }) => `${isActive ? "text-primary" : "text-text1"} font-[500] text-[20px] flex gap-[20px] items-center `} to={"/recorder"}>
+            <BsFillMicFill className="icon" />
+            <span>Record</span>
           </NavLink>
         </div>
       </div>

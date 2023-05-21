@@ -3,8 +3,9 @@ import { HiBell } from "react-icons/hi";
 import Navbar from "../../Components/Navbar/Navbar";
 import { Outlet, Link } from "react-router-dom";
 import avatar from "../../assets/avatar.png";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect, useRef } from "react";
 import { BiLogOutCircle } from "react-icons/bi";
+import { BsFillMicFill } from "react-icons/bs";
 import Music from "../../apis/Music";
 import { Songs } from "../../Context";
 import "./Home.scss";
@@ -15,20 +16,52 @@ const Home = () => {
   const { handleSetSong } = useContext(Songs);
   const [idSong, setidSong] = useState(0);
   const handlePlaySong = (idSong) => {
-    console.log(idSong);
     setidSong(idSong);
     handleSetSong(idSong);
   };
   const isLoggedIn = localStorage.getItem("isLoggedIn");
   const [isSearching, setIsSearching] = useState(false);
   const [searchedSong, serSearchedSong] = useState([]);
+  const [isRecording, setIsRecording] = useState(false);
+  const searchRef = useRef();
+  const [transcript, setTranscript] = useState('');
+
+  const recognition = new window.webkitSpeechRecognition();
+
+  recognition.onresult = (event) => {
+    const currentTranscript = event.results[event.results.length - 1][0].transcript;
+    setTranscript(currentTranscript);
+  };
+
+  const startListening = () => {
+    recognition.start();
+  };
+  useEffect(() => {
+    if (isRecording) {
+      startListening();
+    }
+  }, [isRecording]);
+  useEffect(() => {
+    if (transcript !== '') {
+
+      searchRef.current.value = transcript;
+      setIsSearching(true);
+      const fetchSong = async () => {
+        const res = await Music.search(transcript);
+        serSearchedSong(res);
+      }
+      fetchSong();
+    }
+
+  }, [transcript]);
+
   return (
     <div style={{ display: "flex" }}>
       <Navbar />
       <div className="flex-auto pl-[38px] pr-[60px]" style={{ background: "linear-gradient(113.82deg, #000000 0%, #1A1A1A 96.93%)" }}>
         <div className="h-[110px] flex items-center justify-between">
           <div className="flex bg-bg1 items-center pl-[20px] pr-[15px] py-[15px] rounded-[12px] relative">
-            <input type="text" placeholder="Search music" className="border-none outline-none bg-bg1 w-[560px]" onFocus={() => { setIsSearching(true) }} onBlur={() => { setIsSearching(false) }} onChange={(e) => {
+            <input type="text" placeholder="Search music" className="border-none outline-none bg-bg1 w-[560px]" ref={searchRef} onFocus={() => { setIsSearching(true) }} onBlur={() => { setIsSearching(false) }} onChange={(e) => {
               setTimeout(() => {
                 const fetchSong = async () => {
                   const res = await Music.search(e.target.value);
@@ -37,10 +70,19 @@ const Home = () => {
                 fetchSong();
               }, 700)
             }} />
-            <BiSearch size='24px' className="text-text1"></BiSearch>
 
-            <div className={`absolute w-full bg-bg1 h-[500px] overflow-y-auto left-0 rounded-[12px] z-[13] top-[70px] cursor-pointer ${isSearching === false ? "hidden" : ""}`} 
-            onClick={(e)=>{e.stopPropagation()}}>
+            <div className="flex item-center gap-[20px]">
+              <BiSearch size='24px' className="text-text1"></BiSearch>
+              <BsFillMicFill size='' className={`text-[24px] ${isRecording ? "text-[#c23b22]" : "text-text1"} transition-all`} onClick={() => {
+                setIsRecording(prev => !prev)
+
+              }
+
+              }></BsFillMicFill>
+            </div>
+
+            <div className={`absolute w-full bg-bg1 h-[500px] overflow-y-auto left-0 rounded-[12px] z-[13] top-[70px] cursor-pointer ${isSearching === false ? "hidden" : ""}`}
+              onClick={(e) => { e.stopPropagation() }}>
               <ReactPerfectScrollbar>
 
                 {searchedSong?.map((song, i) => {
