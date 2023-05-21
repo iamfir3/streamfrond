@@ -139,7 +139,9 @@ const Home = () => {
                 <div className="absolute w-full bg-[#262626] rounded-[40px] px-[20px] py-[10px] transition-all top-[70px] z-[11] left-0 show">
                   <div className="flex gap-[10px] items-center text-[#c23b22]">
                     <BiLogOutCircle size="24"></BiLogOutCircle>
-                    <p className="font-[600]">Log out</p>
+                    <p className="font-[600]" onClick={()=>{
+                      
+                    }}>Log out</p>
                   </div>
                 </div>
               </div>

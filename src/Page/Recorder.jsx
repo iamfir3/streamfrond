@@ -45,37 +45,6 @@ const Recorder = () => {
           onStop={handleRecordingComplete}
           mimeType="audio/wav"
         />
-        <div>
-          <div onClick={()=>{
-            setSound(
-              new Howl({
-                src: [recordedBlob],
-                html5: true,
-                onload: function () {
-                  const convolver = Howler.ctx.createConvolver();
-                  const request = new XMLHttpRequest();
-                  request.open('GET', 'reverb.wav', true);
-                  request.responseType = 'arraybuffer';
-                  request.onload = function () {
-                    Howler.ctx.decodeAudioData(request.response, function (buffer) {
-                      convolver.buffer = buffer;
-                      this._sounds[0]._node.disconnect();
-                      this._sounds[0]._node.connect(convolver);
-                      convolver.connect(Howler.ctx.destination);
-                    });
-                  };
-                  request.send();
-                }
-              })
-            )
-            sound?.play();
-          }}>
-            <p>Làm méo tiếng</p>
-          </div>
-          <div>
-            <p>Tạo vang</p>
-          </div>
-        </div>
       </div>
     </div>
   );
